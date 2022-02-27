@@ -32,8 +32,19 @@ function comming_soon_assets() {
     wp_enqueue_script( 'bootstrap-jquery-js', get_theme_file_uri().'/assets/js/bootstrap.min.js', array('jquery'), null, true );
     wp_enqueue_script( 'jquery.waypoints-jquery-js', get_theme_file_uri().'/assets/js/jquery.waypoints.min.js', array('jquery'), null, true );
     wp_enqueue_script( 'simplyCountdown-jquery-js', get_theme_file_uri().'/assets/js/simplyCountdown.js', array('jquery'), null, true );
-    wp_enqueue_script( 'main-jquery-js', get_theme_file_uri().'/assets/js/main.js', array('jquery'), null, true );
-}
+    wp_enqueue_script( 'main-jquery-js', get_theme_file_uri().'/assets/js/main.js', array('jquery'), VERSION, true );
+
+    /* Custom field release meta field data */
+    $release_year  = get_post_meta( get_the_ID(), 'release_year', true );
+    $release_month = get_post_meta( get_the_ID(), 'release_month', true );
+    $release_day   = get_post_meta( get_the_ID(), 'release_day', true );
+
+    wp_localize_script( 'main-jquery-js', 'release_data', array(
+      'release_year' => $release_year,
+      'release_month' => $release_month,
+      'release_day' => $release_day,
+     ) );
+  }
 add_action( 'wp_enqueue_scripts', 'comming_soon_assets' );
 
 /** 

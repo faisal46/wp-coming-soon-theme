@@ -1,5 +1,5 @@
 ;(function ($) {
-	
+
 	'use strict';
 
 	var isMobile = {
@@ -86,11 +86,10 @@
 	};
 
 	var countDown = function() {
-
 		simplyCountdown('.simply-countdown-one', {
-			year: '2022',
-			month: '05',
-			day: '30',
+			year: release_data.release_year,
+			month: release_data.release_month,
+			day: release_data.release_day,
 		});
 
 	};
