@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Comming Soon Home
+* Template Name: Coming Soon Home
 */
 
 get_header();
